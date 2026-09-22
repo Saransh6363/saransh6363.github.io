@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saransh Rai | Data Analyst Portfolio</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --border: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* Header / Hero */
+        header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* About & Skills */
+        .about-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* Project Filters */
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .project-highlights {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        .project-highlights li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .project-highlights li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Experience, Credentials & Certificates */
+        .timeline-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .role-title {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .cert-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-top: 15px;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Saransh Rai</h1>
+        <p class="subtitle">Entry-Level Data Analyst | SQL, Python, Excel & Power BI</p>
+        <div class="contact-info">
+            <span><i class="fa-solid fa-location-dot"></i> Rohini, Delhi</span>
+            <span><i class="fa-solid fa-phone"></i> +91 7703956522</span>
+            <span><i class="fa-solid fa-envelope"></i> <a href="mailto:raisaransh007@gmail.com">raisaransh007@gmail.com</a></span>
+            <span><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/saransh-rai-8197893a8" target="_blank">LinkedIn Profile</a></span>
+            <span><i class="fa-brands fa-github"></i> <a href="https://github.com/Saransh6363" target="_blank">GitHub Profile</a></span>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- About Section -->
+        <section>
+            <h2><i class="fa-solid fa-user"></i> About Me</h2>
+            <div class="about-text">
+                Entry-level Data Analyst with hands-on experience driving end-to-end analytics workflows—from data cleaning and exploratory data analysis (EDA) to advanced SQL querying and dynamic Power BI/Excel dashboard development[span_0](start_span)[span_0](end_span). Proven track record of analyzing multi-table datasets containing over 447,000 records to extract actionable logistics, sales, and revenue insights[span_1](start_span)[span_1](end_span). Adept at converting ambiguous business questions into structured, interactive reporting tools[span_2](start_span)[span_2](end_span).
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section>
+            <h2><i class="fa-solid fa-code"></i> Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>SQL & Querying</h3>
+                    <div class="skill-tags">
+                        <span class="tag">MySQL</span>
+                        <span class="tag">CTEs</span>
+                        <span class="tag">Window Functions</span>
+                        <span class="tag">Joins</span>
+                        <span class="tag">Subqueries</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Python Analysis</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Pandas</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag">EDA</span>
+                        <span class="tag">Data Preprocessing</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>BI & Visualization</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">DAX</span>
+                        <span class="tag">Power Query</span>
+                        <span class="tag">Excel Power Pivot</span>
+                        <span class="tag">Star Schema</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools & Versioning</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Git</span>
+                        <span class="tag">GitHub</span>
+                        <span class="tag">Pivot Tables</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section>
+            <h2><i class="fa-solid fa-diagram-project"></i> Selected Projects</h2>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterProjects('all')">All</button>
+                <button class="filter-btn" onclick="filterProjects('powerbi')">Power BI</button>
+                <button class="filter-btn" onclick="filterProjects('sql')">SQL</button>
+                <button class="filter-btn" onclick="filterProjects('excel')">Excel</button>
+                <button class="filter-btn" onclick="filterProjects('python')">Python</button>
+            </div>
+
+            <div class="projects-grid">
+                
+                <!-- Project 1 (Power BI with Image) -->
+                <div class="project-card" data-category="powerbi">
+                    <div>
+                        <img src="powerbi-dashboard.jpeg" alt="Power BI Sales Dashboard Preview" class="project-img">
+                        <h3 class="project-title">Power BI Sales Dashboard – Motorola Dataset</h3>
+                        <p class="project-desc">Interactive dashboard built to analyze 769M in mobile sales across 19,000 units and 15 cities[span_3](start_span)[span_3](end_span).</p>
+                        <ul class="project-highlights">
+                            <li>Built star-schema model with custom DAX date table & DATEADD MoM calculations[span_4](start_span)[span_4](end_span).</li>
+                            <li>Surfaced Delhi as generating 204M in sales (1.6x higher than Mumbai) to guide expansion strategy[span_5](start_span)[span_5](end_span).</li>
+                            <li>Implemented dynamic brand/month slicers for drill-down across 4 brands[span_6](start_span)[span_6](end_span).</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Saransh6363/motorola-sales-dashboard" class="btn" target="_blank"><i class="fa-brands fa-github"></i> View GitHub Repo</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 (SQL) -->
+                <div class="project-card" data-category="sql">
+                    <div>
+                        <h3 class="project-title">Olist E-Commerce SQL Database Analysis</h3>
+                        <p class="project-desc">In-depth database querying across 5 relational tables containing 447,000+ records[span_7](start_span)[span_7](end_span).</p>
+                        <ul class="project-highlights">
+                            <li>Wrote advanced CTEs and window functions to evaluate 130.59M in product sales and 2.25M in freight[span_8](start_span)[span_8](end_span).</li>
+                            <li>Identified freight shipping costs averaged ~16.57% of order value[span_9](start_span)[span_9](end_span).</li>
+                            <li>Joined 5 tables to map geographic revenue performance across 73 product categories[span_10](start_span)[span_10](end_span).</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Saransh6363/olist-sql-analysis" class="btn" target="_blank"><i class="fa-brands fa-github"></i> View GitHub Repo</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 (Excel) -->
+                <div class="project-card" data-category="excel">
+                    <div>
+                        <h3 class="project-title">Interactive Excel Sales & Performance Dashboard</h3>
+                        <p class="project-desc">Self-service Excel dashboard integrating 5 Olist e-commerce tables using Power Pivot[span_11](start_span)[span_11](end_span).</p>
+                        <ul class="project-highlights">
+                            <li>Modeled data relationships using Power Query and Power Pivot[span_12](start_span)[span_12](end_span).</li>
+                            <li>Created dynamic KPI cards, Pivot Tables, and slicers for non-technical stakeholders[span_13](start_span)[span_13](end_span).</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Saransh6363/excel-sales-dashboard" class="btn" target="_blank"><i class="fa-brands fa-github"></i> View GitHub Repo</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 (Python) -->
+                <div class="project-card" data-category="python">
+                    <div>
+                        <h3 class="project-title">Decode Labs Python Data Cleaning & EDA</h3>
+                        <p class="project-desc">Exploratory data analysis and preprocessing of an e-commerce dataset using Pandas and Matplotlib[span_14](start_span)[span_14](end_span).</p>
+                        <ul class="project-highlights">
+                            <li>Cleaned ~1,200 records, handled missing values, duplicates, and engineered new features[span_15](start_span)[span_15](end_span).</li>
+                            <li>Uncovered 1.26M in total revenue with an Average Order Value (AOV) of 1,053[span_16](start_span)[span_16](end_span).</li>
+                            <li>Determined a 0.717 correlation between total price and unit price[span_17](start_span)[span_17](end_span).</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Saransh6363/python-eda-decodelabs" class="btn" target="_blank"><i class="fa-brands fa-github"></i> View GitHub Repo</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section>
+            <h2><i class="fa-solid fa-briefcase"></i> Experience</h2>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="role-title">Data Analyst Intern — Decode Labs (Remote)</span>
+                    <span class="timeline-date">May 2026 – Jun 2026</span>
+                </div>
+                <ul class="project-highlights">
+                    <li>Applied SQL, Python, and Excel across live analytics projects on real-world datasets[span_18](start_span)[span_18](end_span).</li>
+                    <li>Wrote SQL joins and aggregations to answer core business questions on revenue trends[span_19](start_span)[span_19](end_span).</li>
+                    <li>Delivered all internship projects on schedule and published them to GitHub[span_20](start_span)[span_20](end_span).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education & Credentials -->
+        <section>
+            <h2><i class="fa-solid fa-graduation-cap"></i> Education & Credentials</h2>
+            <div class="cert-card-grid">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="role-title">Bachelor of Computer Applications (BCA)</span>
+                        <span class="timeline-date">GGSIPU</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Ideal Institute of Management and Technology</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="role-title">Virtual Internship Program - Data Analytics</span>
+                        <span class="timeline-date">Issued Jun 26, 2026</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Decode Labs (Student ID: DA06261121)</p>
+                    <img src="certificate-decode-labs.jpeg" alt="Decode Labs Internship Certificate" class="cert-img">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; Saransh Rai. Built for Data Analytics Portfolio.</p>
+    </footer>
+
+    <!-- JavaScript for Dynamic Filtering -->
+    <script>
+        function filterProjects(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
