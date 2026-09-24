@@ -54,7 +54,7 @@ Ideal Institute of Management and Technology
 ## 📫 Connect With Me
 
 - **Portfolio:** https://YOURUSERNAME.github.io/
-- **GitHub:** https://github.com/YOURUSERNAME
+- **GitHub:** https://github.com/Saransh6363
 - **LinkedIn:** Add your LinkedIn profile here
 
 ---
