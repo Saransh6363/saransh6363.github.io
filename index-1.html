@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saransh Rai / Data Analyst</title>
+<meta name="description" content="Saransh Rai — Data Analyst portfolio. SQL, Python, Excel, Power BI, and decision-ready analysis.">
+<style>
+  :root{
+    --bg:#090a0f;
+    --bg-panel:#10121a;
+    --border:#20232e;
+    --text:#e7e9ee;
+    --muted:#9aa0ac;
+    --blue:#5ec8f8;
+    --green:#34d399;
+    --yellow:#eab308;
+    --mono:'Courier New', ui-monospace, monospace;
+    --sans:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
+  section{padding:80px 0;border-bottom:1px solid var(--border);}
+  section:last-of-type{border-bottom:none;}
+
+  /* nav */
+  nav{
+    position:sticky;top:0;z-index:10;
+    background:rgba(9,10,15,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:18px;letter-spacing:0.5px;}
+  .brand-dot{
+    width:34px;height:34px;border-radius:50%;
+    border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .brand-dot span{width:10px;height:10px;border-radius:50%;background:var(--yellow);display:block;}
+  .brand b{color:var(--blue);}
+  nav .links{display:flex;gap:28px;font-size:14px;color:var(--muted);}
+  nav .links a{text-decoration:none;}
+  nav .links a:hover{color:var(--text);}
+
+  /* hero */
+  .hero{padding-top:90px;padding-bottom:90px;}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:12px;letter-spacing:1px;
+    color:var(--green);border:1px solid rgba(52,211,153,0.3);
+    background:rgba(52,211,153,0.06);
+    padding:6px 14px;border-radius:999px;margin-bottom:28px;
+  }
+  .badge i{width:8px;height:8px;border-radius:50%;background:var(--green);display:block;}
+  h1.hero-title{
+    font-size:clamp(36px,6vw,60px);
+    font-weight:700;line-height:1.1;margin:0 0 24px;
+  }
+  h1.hero-title .accent{color:var(--blue);}
+  .hero p.sub{color:var(--muted);font-size:18px;max-width:560px;margin:0 0 36px;}
+  .btn-row{display:flex;flex-wrap:wrap;gap:14px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 24px;border-radius:8px;font-size:15px;font-weight:600;
+    text-decoration:none;
+  }
+  .btn-primary{background:var(--blue);color:#04121a;}
+  .btn-outline{border:1px solid var(--border);color:var(--text);}
+
+  /* console card */
+  .console{
+    margin-top:56px;background:var(--bg-panel);border:1px solid var(--border);
+    border-radius:14px;padding:28px;
+  }
+  .console-head{
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--mono);font-size:13px;color:var(--muted);
+    border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:20px;
+  }
+  .console-head .live{color:var(--green);}
+  .code{font-family:var(--mono);font-size:14px;color:#c7cbd4;white-space:pre-wrap;}
+  .code .kw{color:var(--yellow);}
+  .code .fn{color:var(--blue);}
+  .stats-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:1px;
+    background:var(--border);margin-top:24px;border-radius:10px;overflow:hidden;
+  }
+  .stat{background:var(--bg-panel);padding:20px;}
+  .stat b{display:block;font-size:26px;margin-bottom:4px;}
+  .stat span{font-size:12px;color:var(--muted);letter-spacing:0.5px;}
+
+  .facts-row{
+    display:grid;grid-template-columns:1fr 1fr;gap:16px 40px;
+    margin-top:32px;font-family:var(--mono);font-size:14px;color:var(--muted);
+  }
+  .facts-row b{color:var(--yellow);margin-right:8px;}
+
+  /* section eyebrow */
+  .eyebrow{
+    display:flex;align-items:center;gap:14px;
+    font-family:var(--mono);font-size:13px;letter-spacing:2px;color:var(--blue);
+    margin-bottom:20px;
+  }
+  .eyebrow .num{color:var(--yellow);}
+  .eyebrow .rule{flex:0 0 40px;height:1px;background:var(--border);}
+  h2{font-size:clamp(28px,4vw,42px);margin:0 0 20px;font-weight:700;}
+  .lead{color:var(--muted);font-size:17px;max-width:640px;margin:0 0 40px;}
+
+  /* pills */
+  .pills{display:flex;flex-wrap:wrap;gap:10px;}
+  .pill{
+    border:1px solid var(--border);border-radius:999px;
+    padding:8px 16px;font-size:13px;color:var(--muted);font-family:var(--mono);
+  }
+  .pill.active{border-color:var(--yellow);color:var(--yellow);}
+
+  /* skills */
+  .skill-block{padding:28px 0;border-top:1px solid var(--border);}
+  .skill-block:first-of-type{border-top:none;}
+  .skill-head{display:flex;justify-content:space-between;align-items:flex-start;}
+  .skill-head h3{margin:0 0 4px;font-size:22px;}
+  .skill-head p{margin:0 0 18px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:1px;text-transform:uppercase;}
+
+  /* projects */
+  .filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
+  .project{
+    background:var(--bg-panel);border:1px solid var(--border);border-radius:16px;
+    overflow:hidden;margin-bottom:28px;
+  }
+  .project-media{
+    position:relative;background:#000;
+    display:flex;align-items:center;justify-content:center;
+    min-height:180px;
+  }
+  .project-media img{width:100%;display:block;}
+  .project-tag{
+    position:absolute;top:16px;left:16px;
+    font-family:var(--mono);font-size:12px;color:var(--muted);
+    display:flex;align-items:center;gap:8px;
+  }
+  .project-tag i{width:6px;height:6px;border-radius:50%;background:var(--blue);}
+  .project-body{padding:28px;}
+  .project-body h3{font-size:26px;margin:0 0 12px;}
+  .project-body p.desc{color:var(--muted);margin:0 0 20px;}
+  .project-body .pills{margin-bottom:22px;}
+  .callout{
+    display:flex;gap:10px;color:var(--green);font-size:15px;
+    border-top:1px solid var(--border);padding-top:20px;margin-top:4px;
+  }
+  .actions{display:flex;gap:24px;margin-top:20px;align-items:center;flex-wrap:wrap;}
+  .actions .btn{padding:11px 20px;font-size:14px;}
+  .actions .ghost{color:var(--muted);font-family:var(--mono);font-size:13px;text-decoration:none;}
+
+  /* experience timeline */
+  .timeline-item{display:flex;gap:24px;}
+  .timeline-rail{display:flex;flex-direction:column;align-items:center;}
+  .dot{width:14px;height:14px;border-radius:50%;background:var(--blue);flex:0 0 auto;}
+  .line{flex:1;width:1px;background:var(--border);margin-top:6px;}
+  .timeline-content{padding-bottom:48px;}
+  .timeline-content h3{font-size:24px;margin:0 0 10px;}
+  .meta-row{display:flex;gap:14px;align-items:center;margin-bottom:18px;flex-wrap:wrap;}
+  .date{font-family:var(--mono);color:var(--yellow);font-size:13px;letter-spacing:1px;}
+  .timeline-content p{color:var(--muted);max-width:640px;}
+
+  /* education */
+  .edu-card{
+    background:var(--bg-panel);border:1px solid var(--border);border-radius:14px;
+    padding:28px;margin-bottom:24px;
+  }
+  .edu-card .yrs{font-family:var(--mono);color:var(--yellow);font-size:13px;}
+  .edu-card h3{margin:10px 0 6px;font-size:22px;}
+  .edu-card p{color:var(--muted);margin:0;}
+  .cert-shot img{width:100%;border-radius:10px;display:block;margin-top:20px;border:1px solid var(--border);}
+  .verified{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:13px;color:var(--green);margin-top:20px;}
+
+  /* contact */
+  .contact-card{
+    background:var(--bg-panel);border:1px solid var(--border);border-radius:16px;
+    padding:44px;position:relative;overflow:hidden;
+  }
+  .contact-card h2{max-width:520px;}
+  .contact-card .accent{color:var(--blue);}
+  .contact-card p.lead{margin-bottom:36px;}
+  .contact-actions{display:flex;flex-direction:column;gap:14px;max-width:280px;margin-bottom:32px;}
+  .contact-meta{
+    display:flex;gap:28px;flex-wrap:wrap;
+    font-family:var(--mono);font-size:13px;color:var(--muted);
+    border-top:1px solid var(--border);padding-top:24px;
+  }
+  .contact-meta a{text-decoration:none;}
+  .contact-meta a:hover{color:var(--text);}
+
+  footer{padding:32px 0;text-align:center;color:var(--muted);font-size:13px;}
+
+  @media(max-width:640px){
+    .stats-grid,.facts-row{grid-template-columns:1fr;}
+    nav .links{display:none;}
+    .contact-card{padding:28px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><div class="brand-dot"><span></span></div>SR<b>/</b>DATA</div>
+    <div class="links">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="badge"><i></i>AVAILABLE FOR DATA ANALYST ROLES</div>
+    <h1 class="hero-title">I turn messy data into <span class="accent">clear direction.</span></h1>
+    <p class="sub">I'm Saransh Rai — an entry-level Data Analyst building rigorous, human-readable answers across SQL, Python, Excel, and Power BI.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#work">Explore projects →</a>
+      <a class="btn btn-outline" href="#contact">Start a conversation ↗</a>
+    </div>
+
+    <div class="console">
+      <div class="console-head"><span>&gt;_ ANALYST_CONSOLE / 001</span><span class="live">LIVE</span></div>
+      <div class="code"><span class="kw">WITH</span> regional_signal <span class="kw">AS</span> (
+    <span class="kw">SELECT</span> city, <span class="fn">SUM</span>(sales) revenue
+    <span class="kw">FROM</span> motorola_sales
+    <span class="kw">GROUP BY</span> city
+)
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> regional_signal
+<span class="kw">ORDER BY</span> revenue <span class="kw">DESC</span>;</div>
+      <div class="stats-grid">
+        <div class="stat"><b>447K+</b><span>RECORDS ANALYZED</span></div>
+        <div class="stat"><b>₹769M</b><span>SALES MODELED</span></div>
+        <div class="stat"><b>73</b><span>CATEGORIES MAPPED</span></div>
+        <div class="stat"><b>0.717</b><span>PRICE CORRELATION</span></div>
+      </div>
+      <div class="facts-row">
+        <div><b>01</b>Based in Delhi</div>
+        <div><b>02</b>BCA / GGSIPU</div>
+        <div><b>03</b>Decode Labs Intern</div>
+        <div><b>04</b>Open to impact</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">02</span><span class="rule"></span>SELECTED WORK</div>
+    <h2>Proof, not promises.</h2>
+    <p class="lead">A small sample of the questions I like to answer: where is revenue concentrated, what is eroding margin, and which relationships deserve a closer look?</p>
+
+    <div class="filter-row">
+      <span class="pill active">ALL</span>
+      <span class="pill">POWER BI</span>
+      <span class="pill">SQL</span>
+      <span class="pill">EXCEL</span>
+      <span class="pill">PYTHON</span>
+    </div>
+
+    <!-- Project 1 -->
+    <div class="project">
+      <div class="project-media"><div class="project-tag"><i></i>01 · POWER BI</div>
+        <img src="powerbi-dashboard.jpeg" alt="Power BI Motorola Sales Dashboard preview" onerror="this.parentElement.style.minHeight='120px'; this.remove();">
+      </div>
+      <div class="project-body">
+        <h3>Motorola Sales Dashboard</h3>
+        <p class="desc">A self-serve sales command center that turns 4K transactions into a clear regional growth story. Built star-schema model with a custom DAX date table and DATEADD MoM calculations across 15 cities and 4 brands.</p>
+        <div class="pills">
+          <span class="pill">Power BI</span><span class="pill">DAX</span><span class="pill">Star schema</span><span class="pill">DATEADD</span>
+        </div>
+        <div class="callout">↳ Delhi's ₹204M sales signal a 1.6× expansion opportunity over Mumbai.</div>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://github.com/Saransh6363/motorola-sales-dashboard" target="_blank" rel="noopener">Read case study ↗</a>
+          <a class="ghost" href="https://github.com/Saransh6363/motorola-sales-dashboard" target="_blank" rel="noopener">GITHUB ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project">
+      <div class="project-media"><div class="project-tag"><i></i>02 · SQL</div>
+        <img src="sql-analysis-visual.svg" alt="SQL query and correlation analysis visual" onerror="this.parentElement.style.minHeight='120px'; this.remove();">
+      </div>
+      <div class="project-body">
+        <h3>Olist E-Commerce Analysis</h3>
+        <p class="desc">Five relational tables, 447K+ records, and a set of business questions answered with focused SQL. Wrote advanced CTEs and window functions to evaluate ₹130.59M in product sales and ₹2.25M in freight.</p>
+        <div class="pills">
+          <span class="pill">MySQL</span><span class="pill">CTEs</span><span class="pill">Window functions</span><span class="pill">5 tables</span>
+        </div>
+        <div class="callout">↳ Freight costs surfaced as a 16.57% margin risk worth renegotiating.</div>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://github.com/Saransh6363/olist-sql-analysis" target="_blank" rel="noopener">Read case study ↗</a>
+          <a class="ghost" href="https://github.com/Saransh6363/olist-sql-analysis" target="_blank" rel="noopener">GITHUB ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project">
+      <div class="project-media"><div class="project-tag"><i></i>03 · EXCEL</div>
+        <img src="excel-dashboard-visual.svg" alt="Excel pivot table and KPI dashboard visual" onerror="this.parentElement.style.minHeight='120px'; this.remove();">
+      </div>
+      <div class="project-body">
+        <h3>Olist Excel Dashboard</h3>
+        <p class="desc">A stakeholder-friendly reporting layer built on a Power Query and Power Pivot data model, with dynamic KPI cards, pivot tables, and slicers for non-technical stakeholders.</p>
+        <div class="pills">
+          <span class="pill">Excel</span><span class="pill">Power Query</span><span class="pill">Power Pivot</span><span class="pill">Slicers</span>
+        </div>
+        <div class="callout">↳ Made regional, product, and time-period performance explorable without a BI license.</div>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://github.com/Saransh6363/excel-sales-dashboard" target="_blank" rel="noopener">Read case study ↗</a>
+          <a class="ghost" href="https://github.com/Saransh6363/excel-sales-dashboard" target="_blank" rel="noopener">GITHUB ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project">
+      <div class="project-media"><div class="project-tag"><i></i>04 · PYTHON</div>
+        <img src="python-eda-visual.svg" alt="Python EDA scatter plot and correlation visual" onerror="this.parentElement.style.minHeight='120px'; this.remove();">
+      </div>
+      <div class="project-body">
+        <h3>Decode Labs EDA</h3>
+        <p class="desc">A clean, decision-ready e-commerce dataset built from messy source rows and exploratory questions. Cleaned ~1,200 records, handled missing values and duplicates, and engineered new features.</p>
+        <div class="pills">
+          <span class="pill">Python</span><span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">Matplotlib</span>
+        </div>
+        <div class="callout">↳ A 0.717 price correlation separated high-revenue products from high-volume products.</div>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://github.com/Saransh6363/python-eda-decodelabs" target="_blank" rel="noopener">Read case study ↗</a>
+          <a class="ghost" href="https://github.com/Saransh6363/python-eda-decodelabs" target="_blank" rel="noopener">GITHUB ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">03</span><span class="rule"></span>THE WORKING STACK</div>
+    <h2>Fluent in the tools between question and answer.</h2>
+    <p class="lead">The goal is never to show off a tool. It is to build a clean chain from raw row to confident decision.</p>
+
+    <div class="skill-block">
+      <div class="skill-head"><div><h3>SQL & Querying</h3><p>Database thinking</p></div></div>
+      <div class="pills"><span class="pill">MySQL</span><span class="pill">CTEs</span><span class="pill">Window functions</span><span class="pill">Joins</span><span class="pill">Subqueries</span></div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-head"><div><h3>Python Analysis</h3><p>Shape the signal</p></div></div>
+      <div class="pills"><span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">EDA</span><span class="pill">Data cleaning</span><span class="pill">Feature engineering</span></div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-head"><div><h3>BI & Visualization</h3><p>Make it legible</p></div></div>
+      <div class="pills"><span class="pill">Power BI</span><span class="pill">DAX</span><span class="pill">Power Query</span><span class="pill">Star schema</span><span class="pill">Excel</span></div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-head"><div><h3>Tools & Workflow</h3><p>Ship the answer</p></div></div>
+      <div class="pills"><span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">Pivot tables</span><span class="pill">Matplotlib</span><span class="pill">Documentation</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">04</span><span class="rule"></span>EXPERIENCE DOSSIER</div>
+    <h2>Early career. Serious curiosity.</h2>
+
+    <div class="timeline-item">
+      <div class="timeline-rail"><div class="dot"></div><div class="line"></div></div>
+      <div class="timeline-content">
+        <h3>Data Analyst Intern — Decode Labs</h3>
+        <div class="meta-row">
+          <span class="pill">Remote / internship</span>
+          <span class="date">MAY — JUN 2026</span>
+        </div>
+        <p>Applied SQL, Python, and Excel across live analytics projects: cleaning imperfect data, writing joins and aggregations, and packaging business questions into dashboards that stakeholders could actually use.</p>
+        <div class="stats-grid" style="margin-top:20px;max-width:520px;">
+          <div class="stat"><b>04</b><span>PROJECTS SHIPPED</span></div>
+          <div class="stat"><b>447K+</b><span>ROWS ANALYZED</span></div>
+          <div class="stat"><b>100%</b><span>ON SCHEDULE</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-card">
+      <div class="yrs">2023 — 2026</div>
+      <h3>Bachelor of Computer Applications</h3>
+      <p>Ideal Institute of Management and Technology / GGSIPU</p>
+      <div class="verified">
+        <span>✓ VERIFIED CREDENTIAL</span><span>2026</span>
+      </div>
+      <div class="cert-shot">
+        <img src="certificate-decode-labs.jpeg" alt="Decode Labs Data Analytics internship certificate" onerror="this.remove();">
+      </div>
+      <p style="margin-top:16px;font-family:var(--mono);font-size:13px;">Virtual Internship Program · Student ID DA06261121</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div class="eyebrow"><span class="num">05</span><span class="rule"></span>OPEN CHANNEL</div>
+      <h2>Have a question worth <span class="accent">measuring?</span></h2>
+      <p class="lead">I'm looking for an opportunity where careful analysis can make the next decision sharper. Let's compare notes.</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:raisaransh007@gmail.com">✉ Email Saransh</a>
+        <a class="btn btn-outline" href="#" onclick="navigator.clipboard.writeText('raisaransh007@gmail.com');this.textContent='✓ Copied';return false;">⧉ Copy email</a>
+      </div>
+      <div class="contact-meta">
+        <span>📍 ROHINI, DELHI</span>
+        <a href="https://www.linkedin.com/in/saransh-rai-8197893a8" target="_blank" rel="noopener">in LINKEDIN</a>
+        <a href="https://github.com/Saransh6363" target="_blank" rel="noopener">⌥ GITHUB</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© Saransh Rai. Built for Data Analytics Portfolio.</footer>
+
+</body>
+</html>
